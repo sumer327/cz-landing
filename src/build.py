@@ -17,7 +17,7 @@ ADS_ID = "AW-796565164"
 CALL_LABEL = "59QSCJSK270dEKy96vsC"      # 'Click to call (landing pages)' — the buyback pages fire the same one
 QUOTE_LABEL = ""                         # 'Repair quote (landing pages)' — create the action in Google Ads, paste the label, rebuild
 LEAD_ENDPOINT = "https://tdcekxznmfvwcuwokkba.supabase.co/functions/v1/web-lead"
-IMG = "https://cellularzonesa.com/wp-content/uploads/2026/11/"
+IMG = "../img/"   # storefront photos live in the repo (img/), no dependency on the main site
 
 STORES = {
     "potranco": dict(key="PT", name="Potranco", road="Potranco Rd", area="151 / Alamo Ranch", addr="9230 Potranco Rd, Suite 105", city="San Antonio, TX 78251",
@@ -390,6 +390,8 @@ def main():
     with open(os.path.join(OUT, "robots.txt"), "w") as f: f.write("User-agent: *\nDisallow: /\n")
     with open(os.path.join(OUT, "404.html"), "w") as f: f.write(INDEX.replace("__LINKS__", links).replace("<h1>Cellular Zone repair", "<h1>Page not found — Cellular Zone repair"))
     with open(os.path.join(OUT, ".nojekyll"), "w") as f: f.write("")
+    img_src = os.path.join(os.path.dirname(os.path.abspath(__file__)), "img")
+    if os.path.isdir(img_src): shutil.copytree(img_src, os.path.join(OUT, "img"))
     # the quote widget (same build as cellularzonesa.com), with the landing-page tweak: CFG.hide hides device tiles
     src = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "quote.js")).read()
     patched = src.replace("DEVICES.filter(d => catsFor(d.k).length)", "DEVICES.filter(d => catsFor(d.k).length && !(CFG.hide || []).includes(d.k))")
