@@ -396,7 +396,10 @@ def main():
     src = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "quote.js")).read()
     patched = src.replace("DEVICES.filter(d => catsFor(d.k).length)", "DEVICES.filter(d => catsFor(d.k).length && !(CFG.hide || []).includes(d.k))")
     assert patched != src, "quote.js device filter not found"
-    with open(os.path.join(OUT, "quote.js"), "w") as f: f.write(patched)
+    # leads from these pages are labelled so the POS Inbox / Slack can tell them from the main-site widget
+    patched2 = patched.replace("const lead = {source: 'Website quote widget',", "const lead = {source: 'Repair landing page (ads)',")
+    assert patched2 != patched, "quote.js lead source not found"
+    with open(os.path.join(OUT, "quote.js"), "w") as f: f.write(patched2)
     print("built", [p["slug"] for p in PAGES], "→", OUT)
 
 if __name__ == "__main__":

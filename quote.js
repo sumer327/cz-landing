@@ -560,7 +560,7 @@ function rqBuild(V){
           const appt = S.when === 'appointment' ? {date: S.appt.day, time: S.appt.time, label: apptLabel(S.appt.day, S.appt.time)} : null;
           const btn = W.querySelector('#czq-go'); btn.disabled = true; btn.textContent = 'Sending…'; err.textContent = '';
           const list = picked(), at = attribution();
-          const lead = {source: 'Website quote widget', store: S.store, name, phone: ph, device: S.model.label, category: S.model.c,
+          const lead = {source: 'Repair landing page (ads)', store: S.store, name, phone: ph, device: S.model.label, category: S.model.c,
             repairs: list.map(x => ({name: x.label, price: x.price, text: x.text || null})), total: total(list), when: S.when, appt, message: S.form['czq-note'].trim(),
             marketingOptIn: !!S.form.opt, attribution: at, pricesLive: S.live, website: W.querySelector('#czq-web').value, ms: Date.now() - S.t0};
           let ok = false, demo = !CFG.endpoint;
