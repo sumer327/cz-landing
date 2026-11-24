@@ -229,7 +229,7 @@ window.CZ_QUOTE_CONFIG={endpoint:'https://tdcekxznmfvwcuwokkba.supabase.co/funct
   BV:{name:'Bulverde',addr:'17910 Bulverde Rd Suite 106',city:'San Antonio, TX 78259',phone:'7262274149',lat:29.6018,lng:-98.4184}}};
 document.getElementById('cz-quote').dataset.store=S.key;
 /* the widget's lead → Google Ads conversion (label filled once the action exists) */
-var QUOTE_LABEL='';
+var QUOTE_LABEL='qPQLCNac5r4dEKy96vsC';
 var origPush=window.dataLayer.push;window.dataLayer.push=function(){var r=origPush.apply(this,arguments);try{var ev=arguments[0];if(ev&&ev.event==='generate_lead'&&QUOTE_LABEL&&typeof gtag==='function'){gtag('event','conversion',{send_to:'AW-796565164/'+QUOTE_LABEL,value:ev.value||0,currency:'USD'});}}catch(x){}return r;};
 /* live prices: re-read the same published sheet the widget uses; the baked numbers stay if anything fails */
 (function(){var cells=[].slice.call(document.querySelectorAll('td[data-model]'));if(!cells.length)return;

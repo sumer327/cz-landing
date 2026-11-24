@@ -15,7 +15,7 @@ SHEET = "https://docs.google.com/spreadsheets/d/1_LCeGk23y5aZ_mT3Oej_6f1b9Zh9PhY
 GIDS = {"apple": 510910333, "samsung": 1436859400, "consoles": 1693651162}
 ADS_ID = "AW-796565164"
 CALL_LABEL = "59QSCJSK270dEKy96vsC"      # 'Click to call (landing pages)' — the buyback pages fire the same one
-QUOTE_LABEL = ""                         # 'Repair quote (landing pages)' — create the action in Google Ads, paste the label, rebuild
+QUOTE_LABEL = "qPQLCNac5r4dEKy96vsC"     # 'Repair quote (landing pages)' — Submit lead form, Secondary, value from event, count One (created Nov 24 '26)
 LEAD_ENDPOINT = "https://tdcekxznmfvwcuwokkba.supabase.co/functions/v1/web-lead"
 IMG = "../img/"   # storefront photos live in the repo (img/), no dependency on the main site
 
