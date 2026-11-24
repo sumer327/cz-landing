@@ -222,7 +222,7 @@ def page_html(p):
 <body>
 <a class="skip" href="#price">Skip to the price tool</a>
 <header class="top"><div class="wrap">
-  <a class="brand" href="/{p["slug"]}/" data-keep><i></i><span>Cellular Zone</span></a>
+  <a class="brand" href="./" data-keep><i></i><span>Cellular Zone</span></a>
   <span class="status" id="status"></span>
   <a class="call" id="callTop" href="tel:" data-call>{ICON_CALL}<span>Call <span data-store-name></span></span></a>
 </div></header>
@@ -365,7 +365,7 @@ Promise.all(Object.keys(tabs).map(function(t){{return fetch(SHEET+GIDS[t],{{cach
 }})();
 }})();
 </script>
-<script src="/quote.js" defer></script>
+<script src="../quote.js" defer></script>
 </body>
 </html>
 """
@@ -385,7 +385,7 @@ def main():
     for p in PAGES:
         d = os.path.join(OUT, p["slug"]); os.makedirs(d)
         with open(os.path.join(d, "index.html"), "w") as f: f.write(page_html(p))
-    links = "\n".join(f'<a href="/{p["slug"]}/?store=potranco">{esc(p["eb"])}</a>' for p in PAGES)
+    links = "\n".join(f'<a href="{p["slug"]}/?store=potranco">{esc(p["eb"])}</a>' for p in PAGES)
     with open(os.path.join(OUT, "index.html"), "w") as f: f.write(INDEX.replace("__LINKS__", links))
     with open(os.path.join(OUT, "robots.txt"), "w") as f: f.write("User-agent: *\nDisallow: /\n")
     with open(os.path.join(OUT, "404.html"), "w") as f: f.write(INDEX.replace("__LINKS__", links).replace("<h1>Cellular Zone repair", "<h1>Page not found — Cellular Zone repair"))

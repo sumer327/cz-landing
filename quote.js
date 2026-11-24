@@ -392,7 +392,7 @@ function rqBuild(V){
     /* step 1 */
     function vDevice() {
       return header('What needs fixing?', 'Get your price in seconds. No phone number needed to see it.') +
-        `<div class="grid">${DEVICES.filter(d => catsFor(d.k).length).map(d => `<button class="tile" data-k="${d.k}">${ic(d.icon)}<b>${esc(d.label)}</b></button>`).join('')}</div>`;
+        `<div class="grid">${DEVICES.filter(d => catsFor(d.k).length && !(CFG.hide || []).includes(d.k)).map(d => `<button class="tile" data-k="${d.k}">${ic(d.icon)}<b>${esc(d.label)}</b></button>`).join('')}</div>`;
     }
     /* step 2 */
     function modelList() {
